@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaryF Maquiagens</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+    <header class="bg-purple-800 text-white p-4 text-2xl font-bold flex justify-between items-center">
+        <div class="ml-4">MaryF Maquiagens</div>
+    
+        <div class="flex space-x-4">
+            <button onclick="abrirCarrinho()" class="bg-pink-500 px-3 py-2 rounded text-white">
+                🛍️ (<span id="total-items">0</span> itens)
+            </button>
+    
+            <button class="bg-pink-500 px-3 py-2 rounded text-white">
+                Categorias
+            </button>
+        </div>
+    </header>
+    
+    <main class="container mx-auto p-6 text-center">
+        <h1 class="text-3xl font-semibold mb-4">Bem-vindo à nossa loja!</h1>
+        <p class="mb-6">Confira nossos produtos incríveis.</p>
+        
+        <button onclick="WhatsAppcontado()" class="bg-green-700 px-3 py-2 rounded text-white flex items-center gap-2 mb-6">
+            <img src="imagens/whatsapp.png" alt="WhatsApp" class="w-6 h-6">
+            Whatsapp
+        </button>    
+
+        <div id="lista-produtos" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <!-- Produtos serão carregados aqui dinamicamente -->
+        </div>
+    </main>
+
+    <footer class="text-center p-4 mt-6 bg-gray-200">
+        &copy; 2025 MaryF Maquiagens - Todos os direitos reservados
+    </footer>
+
+    <!-- Modal Carrinho -->
+<div id="modal-carrinho" class="fixed inset-0 bg-black bg-opacity-50 hidden flex justify-center items-center z-50 transition-opacity duration-300">
+    <div class="bg-white p-6 rounded-lg w-80 shadow-lg transform transition-transform scale-95">
+        <h2 class="text-xl font-bold mb-4">Carrinho de Compras</h2>
+        <ul id="itens-carrinho" class="mb-4 space-y-2"></ul>
+        <div class="flex justify-between">
+            <button onclick="fecharCarrinho()" class="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500">Fechar</button>
+            <button onclick="finalizarCompra()" class="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600">Finalizar Compra</button>
+        </div>
+    </div>
+</div>
+
+
+    <script src="produtos.js"></script>
+    <script src="carrinho.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

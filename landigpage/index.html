@@ -12,6 +12,7 @@
     <header class="bg-purple-800 text-white p-4 text-2xl font-bold flex justify-between items-center">
         <div class="ml-4">MaryF Maquiagens</div>
     
+        <!--Cabeçalho-->
         <div class="flex space-x-4">
             <button onclick="abrirCarrinho()" class="bg-pink-500 px-3 py-2 rounded text-white">
                 🛍️ (<span id="total-items">0</span> itens)
@@ -27,13 +28,18 @@
         <h1 class="text-3xl font-semibold mb-4">Bem-vindo à nossa loja!</h1>
         <p class="mb-6">Confira nossos produtos incríveis.</p>
 
+        <!--Barra de Busca-->
+        <input type="text" id="search-input" placeholder="Buscar produto..." 
+        oninput="carregarProdutos(this.value)"
+        class="w-full md:w-1/2 p-2 mb-4 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-black-500">        
+
         <!-- Botão para abrir o modal -->
         <button onclick="abrirSobreNos()" class="bg-purple-800 px-3 py-2 rounded text-white flex items-center gap-2 mb-6">
             👤Sobre Nós / Contato
         </button>
      
         <div id="lista-produtos" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            <!-- Produtos serão carregados aqui dinamicamente -->
+            <!-- Parte que os produtos serão carregados -->
         </div>
     </main>
 
@@ -57,7 +63,7 @@
     <div id="modal-sobre" class="fixed inset-0 bg-black bg-opacity-50 hidden flex justify-center items-center z-50">
         <div class="bg-white p-6 rounded-lg w-96 relative text-center">
             
-            <!-- Botões de Fechar e WhatsApp -->
+            <!-- Botão de Fechar -->
             <div class="absolute top-2 right-4 flex space-x-3">
                 <button onclick="fecharSobreNos()" class="text-gray-600 hover:text-red-500 text-xl">&times;</button>
             </div>
@@ -71,9 +77,8 @@
                 <li>📦 Fretes Grátis Itaú/Marcelino Vieira RN</li>
             </ul>
 
-            <!-- Formulário de Contato -->
             <h3 class="text-lg font-bold mb-2">Entre em Contato</h3>
-                
+            <!-- Botão novamente do WhatsApp -->  
             <button onclick="WhatsAppcontado()" class="bg-green-700 px-3 py-2 rounded text-white flex items-center gap-2 mb-6">
                 <img src="imagens/whatsapp.png" alt="WhatsApp" class="w-6 h-6">
                 Whatsapp
@@ -94,7 +99,7 @@
         }
     </script>
 
-    <!-- Certifique-se de carregar os scripts com defer para garantir que o HTML seja carregado primeiro -->
+    <!-- Carregar os scripts com defer para garantir que o HTML seja carregado -->
     <script defer src="produtos.js"></script>
     <script defer src="carrinho.js"></script>
     <script defer src="script.js"></script>

@@ -1,8 +1,15 @@
 let carrinho = [];
 
-function adicionarAoCarrinho(nomeProduto, precoProduto, imagemProduto) {
-    const produto = { nome: nomeProduto, preco: precoProduto, imagem: imagemProduto };
-    carrinho.push(produto);
+//código responsável pelo funcionamento do carrinho//
+function adicionarAoCarrinho(nomeProduto, precoProduto) {
+    const produto = produtos.find(p => p.nome === nomeProduto);
+
+    if (!produto) {
+        console.error("Produto não encontrado no array de produtos.");
+        return;
+    }
+
+    carrinho.push({ nome: produto.nome, preco: produto.preco, imagem: produto.imagem });
     atualizarCarrinho();
 }
 
@@ -35,45 +42,16 @@ function abrirCarrinho() {
         total += produto.preco;
     });
 
-    const totalElemento = document.createElement("p");
-    totalElemento.textContent = `Total: R$ ${total.toFixed(2)}`;
-    totalElemento.classList.add("font-bold", "mt-4");
-    listaItens.appendChild(totalElemento);
-
     modal.classList.remove("hidden");
-    modal.classList.add("scale-100", "opacity-100");
 }
 
 function fecharCarrinho() {
-    const modal = document.getElementById("modal-carrinho");
-    modal.classList.add("hidden");
-    modal.classList.remove("scale-100", "opacity-100");
+    document.getElementById("modal-carrinho").classList.add("hidden");
 }
 
 function finalizarCompra() {
-    if (carrinho.length === 0) {
-        alert("Seu carrinho está vazio! Adicione produtos antes de finalizar a compra.");
-        return;
-    }
-
-    let mensagem = "Olá, gostaria de finalizar a compra desses produtos:\n";
-    
-    carrinho.forEach(produto => {
-        mensagem += `- ${produto.nome} (R$ ${produto.preco.toFixed(2)})\n`;
-    });
-
-    mensagem += "\nQuais são as formas de pagamento disponíveis?";
-    
-    let mensagemCodificada = encodeURIComponent(mensagem);
-    let numeroWhatsApp = "5584996667324";
-    let url = `https://wa.me/${numeroWhatsApp}?text=${mensagemCodificada}`;
-
-    window.location.href = url;
-}
-
-function WhatsAppcontado() {
-    let numeroWhatsApp = "5584996667324";
-    let url = `https://wa.me/${numeroWhatsApp}`;
-
-    window.location.href = url;
+    alert("Compra finalizada com sucesso!");
+    carrinho = [];
+    atualizarCarrinho();
+    fecharCarrinho();
 }

@@ -24,6 +24,45 @@
         </div>
     </header>
     
+    <!-- Carousel Banner -->
+<section id="banner-carousel" class="relative h-80 flex items-center justify-center">
+    <!-- Banner 1 -->
+    <div class="banner-item absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0" style="background-image: url('imagens/banner01.jpg');">
+      <div class="absolute inset-0 bg-gradient-to-b from-purple-800 to-transparent opacity-75"></div>
+    </div>
+    <!-- Banner 2 -->
+    <div class="banner-item absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0" style="background-image: url('imagens/banner02.jpg');">
+      <div class="absolute inset-0 bg-gradient-to-b from-purple-800 to-transparent opacity-75"></div>
+    </div>
+    <!-- Banner 3 -->
+    <div class="banner-item absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0" style="background-image: url('imagens/banner03.jpg');">
+      <div class="absolute inset-0 bg-gradient-to-b from-purple-800 to-transparent opacity-75"></div>
+    </div>
+    
+  </section>
+  
+  <script>
+    // Seleciona todos os banners
+    const banners = document.querySelectorAll('#banner-carousel .banner-item');
+    let currentBanner = 0;
+    
+    // Função para mostrar o banner correspondente
+    function showBanner(index) {
+        banners.forEach((banner, i) => {
+            banner.style.opacity = (i === index) ? '1' : '0';
+        });
+    }
+    
+    // Exibe o primeiro banner inicialmente
+    showBanner(currentBanner);
+    
+    // Altera o banner a cada 5 segundos
+    setInterval(() => {
+        currentBanner = (currentBanner + 1) % banners.length;
+        showBanner(currentBanner);
+    }, 5000);
+  </script>  
+
     <main class="container mx-auto p-6 text-center">
         <h1 class="text-3xl font-semibold mb-4">Bem-vindo à nossa loja!</h1>
         <p class="mb-6">Confira nossos produtos incríveis.</p>

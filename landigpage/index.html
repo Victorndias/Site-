@@ -6,8 +6,39 @@
     <title>MaryF Maquiagens</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* botão vertical do WhatsApp */
+        .whatsapp-vertical {
+          position: fixed;
+          top: 50%;
+          right: 0;
+          transform: translateY(-50%);
+          background-color: #25D366; /* Cor do WhatsApp */
+          padding: 10px;
+          border: 2px solid #fff;
+          border-radius: 8px;
+          color: #fff;
+          font-weight: bold;
+          text-decoration: none;
+          writing-mode: vertical-rl; /* Exibe o texto na vertical */
+          text-orientation: mixed;  /* Mantém os caracteres com orientação legível */
+          z-index: 1000;
+          transition: background-color 0.3s;
+        }
+        .whatsapp-vertical:hover {
+          background-color: #1ebe5d;
+        }
+      </style>
+
 </head>
 <body class="bg-gray-100 text-gray-900">
+
+     <!-- WhatsApp fixo-->
+     <a class="whatsapp-vertical" target="_blank" rel="noopener" onclick="WhatsAppcontado()">
+        <img src="imagens/whatsapp.png" alt="WhatsApp" class="w-6 h-6">
+      </a>
+
 
     <header class="bg-purple-800 text-white p-4 text-2xl font-bold flex justify-between items-center">
         <div class="ml-4">MaryF Maquiagens</div>
@@ -59,6 +90,14 @@
         currentBanner = (currentBanner + 1) % banners.length;
         showBanner(currentBanner);
     }, 5000);
+
+    function WhatsAppcontado() {
+      const numeroWhatsApp = "5511995564258";
+      const url = `https://wa.me/5584996667324`;
+      window.location.href = url;
+      console.log("Redirecionando para o WhatsApp...");
+    }
+
   </script>  
 
     <main class="container mx-auto p-6 text-center">
@@ -66,22 +105,29 @@
         <p class="mb-6">Confira nossos produtos incríveis.</p>
 
         <!--Barra de Busca-->
-        <input type="text" id="search-input" placeholder="Buscar produto..." 
+        <input type="text" id="search-input" placeholder="🔍Buscar produto..." 
         oninput="carregarProdutos(this.value)"
         class="w-full md:w-1/2 p-2 mb-4 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-black-500">        
-
-        <!-- Botão para abrir o modal -->
-        <button onclick="abrirSobreNos()" class="bg-purple-800 px-3 py-2 rounded text-white flex items-center gap-2 mb-6">
-            👤Sobre Nós / Contato
-        </button>
      
         <div id="lista-produtos" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             <!-- Parte que os produtos serão carregados -->
         </div>
     </main>
 
-    <footer class="text-center p-4 mt-6 bg-purple-800">
+    <footer class="text-center text-white mt-6 bg-purple-800">
+        <div class="ml-4">MaryF Maquiagens</div>
+
+        <button onclick="abrirSobreNos()" class="bg-purple-800 px-3 py-2 rounded text-white flex items-center gap-2 mb-1">
+            👤Sobre Nós ->
+        </button>
+        <button onclick="WhatsAppcontado()" class="bg-purple-800 px-3 py-2 rounded text-white flex items-center gap-2 mb-3">
+            <img src="imagens/whatsapp.png" alt="WhatsApp" class="w-6 h-6">
+            WhatsApp ->
+        </button> 
+
         &copy; 2025 MaryF Maquiagens - Todos os direitos reservados
+         <!-- Botão para abrir o modal -->
+
     </footer>
 
     <!-- Modal Carrinho -->
@@ -112,14 +158,7 @@
                 <li>💳 Cartão de Crédito/Débito</li>
                 <li>💰 Pix</li>
                 <li>📦 Fretes Grátis Itaú/Marcelino Vieira RN</li>
-            </ul>
-
-            <h3 class="text-lg font-bold mb-2">Entre em Contato</h3>
-            <!-- Botão novamente do WhatsApp -->  
-            <button onclick="WhatsAppcontado()" class="bg-green-700 px-3 py-2 rounded text-white flex items-center gap-2 mb-6">
-                <img src="imagens/whatsapp.png" alt="WhatsApp" class="w-6 h-6">
-                Whatsapp
-            </button>   
+            </ul>  
             </form>
         </div>
     </div>

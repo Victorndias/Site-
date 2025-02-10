@@ -57,15 +57,12 @@
 <section id="banner-carousel" class="relative h-80 flex items-center justify-center">
     <!-- Banner 1 -->
     <div class="banner-item absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0" style="background-image: url('imagens/banner01.jpg');">
-      <div class="absolute inset-0 bg-gradient-to-b from-purple-800 to-transparent opacity-75"></div>
     </div>
     <!-- Banner 2 -->
     <div class="banner-item absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0" style="background-image: url('imagens/banner02.jpg');">
-      <div class="absolute inset-0 bg-gradient-to-b from-purple-800 to-transparent opacity-75"></div>
     </div>
     <!-- Banner 3 -->
     <div class="banner-item absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0" style="background-image: url('imagens/banner03.jpg');">
-      <div class="absolute inset-0 bg-gradient-to-b from-purple-800 to-transparent opacity-75"></div>
     </div>
     
   </section>
@@ -97,6 +94,11 @@
       window.location.href = url;
       console.log("Redirecionando para o WhatsApp...");
     }
+    function Instagram() {
+    const url = 'https://www.instagram.com/maryfmaquiagens?igsh=MTduMjRybnNqNnVhZA==';
+    console.log("Redirecionando para o Instagram...");
+    window.location.href = url;
+}
 
   </script>  
 
@@ -124,6 +126,11 @@
             <img src="imagens/whatsapp.png" alt="WhatsApp" class="w-6 h-6">
             WhatsApp ->
         </button> 
+        <button onclick="Instagram()" class="bg-purple-800 px-3 py-2 rounded text-white flex items-center gap-2 mb-3">
+            <img src="imagens/Instagram_logo.png" alt="Instagram" class="w-6 h-6">
+            Instagram ->
+        </button>
+        
 
         &copy; 2025 MaryF Maquiagens - Todos os direitos reservados
          <!-- Botão para abrir o modal -->
@@ -162,6 +169,12 @@
             </form>
         </div>
     </div>
+
+    <div id="aviso-carrinho" class="hidden fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
+    bg-purple-800 text-white px-4 py-2 rounded shadow-lg text-center">
+    Produto adicionado ao carrinho!
+        </div>
+
 
     <script>
         // Função para abrir o modal "Sobre Nós"

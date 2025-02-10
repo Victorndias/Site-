@@ -8,6 +8,15 @@ function adicionarAoCarrinho(nomeProduto, precoProduto) {
     }
     carrinho.push({ nome: produto.nome, preco: produto.preco, imagem: produto.imagem });
     atualizarCarrinho();
+
+    let aviso = document.getElementById("aviso-carrinho");
+    aviso.textContent = `"${nomeProduto}" foi adicionado ao carrinho!`;
+    aviso.classList.remove("hidden");
+
+    // Esconder o aviso após 3 segundos
+    setTimeout(() => {
+        aviso.classList.add("hidden");
+    }, 3000);
 }
 
 function atualizarCarrinho() {

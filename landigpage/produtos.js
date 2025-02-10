@@ -30,12 +30,12 @@ function carregarProdutos(termoBusca = "") {
                 <!-- Container para os botões com alinhamento central e espaçamento reduzido -->
                 <div class="flex justify-center mt-3 space-x-2">
                 <!-- Botão para comprar via WhatsApp (fica à esquerda) -->
-                <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-pink-600"
+                <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-purple-800"
             onclick="comprarProduto('${produto.nome}', ${produto.preco})">
             COMPRAR
                  </button>
                 <!-- Botão para adicionar ao carrinho (fica à direita) -->
-                <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-pink-600 flex items-center gap-2"
+                <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-purple-800 flex items-center gap-2"
             onclick="adicionarAoCarrinho('${produto.nome}', ${produto.preco})">
                  <img src="imagens/carrinho.png" alt="Carrinho" class="w-6 h-6">+
              </button>

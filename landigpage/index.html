@@ -29,6 +29,34 @@
         .whatsapp-vertical:hover {
           background-color: #1ebe5d;
         }
+       
+        #scrollToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px; /* Distância do rodapé */
+    left: 50%; /* Posiciona o centro do botão no meio da tela */
+    transform: translateX(-50%); /* Move o botão para o centro */
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    background-color: #9333ea; /* Roxo */
+    color: white;
+    border-radius: 50%; /* Botão arredondado */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#scrollToTopBtn.show {
+    display: block;
+    opacity: 1;
+}
+
+#scrollToTopBtn:hover {
+    background-color: #6b21a8; /* Cor mais escura no hover */
+}
+
       </style>
 
 </head>
@@ -64,7 +92,10 @@
     <!-- Banner 3 -->
     <div class="banner-item absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-0" style="background-image: url('imagens/banner03.jpg');">
     </div>
-    
+    <p class="text-gray-700 font-semibold">Formas de pagamento:</p>
+            <ul class="text-gray-600 mb-4">
+                <li>💳 Cartão de Crédito/Débito</li>
+                <li>💰 Pix</li>
   </section>
   
   <script>
@@ -100,6 +131,24 @@
     window.location.href = url;
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+    
+        // Mostrar/ocultar o botão ao rolar a página
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add("show");
+            } else {
+                scrollToTopBtn.classList.remove("show");
+            }
+        });
+    
+        // Scroll suave ao clicar no botão
+        scrollToTopBtn.addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    });
+
   </script>  
 
     <main class="container mx-auto p-6 text-center">
@@ -127,6 +176,10 @@
     <footer class="text-center text-white mt-6 bg-purple-800">
         <div class="ml-4">MaryF Maquiagens</div>
 
+        <!-- Botão de voltar ao topo -->
+<button id="scrollToTopBtn" class="fixed bottom-4 right-4 bg-purple-600 text-white p-3 rounded-full shadow-lg hover:bg-purple-800 transition-opacity opacity-0">
+    ↑
+</button>
         <button onclick="abrirSobreNos()" class="bg-purple-800 px-3 py-2 rounded text-white flex items-center gap-2 mb-1">
             👤Sobre Nós ->
         </button>
@@ -138,11 +191,30 @@
             <img src="imagens/Instagram_logo.png" alt="Instagram" class="w-6 h-6">
             Instagram ->
         </button>
-        
 
-        &copy; 2025 MaryF Maquiagens - Todos os direitos reservados
+        <footer class="bg-purple-800 text-white p-6 mt-10">
+            <div class="container mx-auto">
+              <h2 class="text-2xl font-bold mb-4 text-right">Formas de Pagamento</h2>
+              <div class="flex flex-wrap justify-end gap-4">
+                <div class="flex flex-col items-center">
+                  <img src="imagens/cartão.png" alt="Visa" class="w-12 h-12">
+                  <p class="mt-2">Cartão</p>
+                </div>
+                <div class="flex flex-col items-center">
+                  <img src="imagens/pix1.png" alt="Pix" class="w-12 h-12">
+                  <p class="mt-2">Pix</p>
+                </div>
+                <div class="flex flex-col items-center">
+                  <img src="imagens/boleto.png" alt="Boleto" class="w-12 h-12">
+                  <p class="mt-2">Boleto</p>
+                </div>
+              </div>
+            </div>
+          </footer>          
+
+       
+   &copy; 2025 MaryF Maquiagens - Todos os direitos reservados
          <!-- Botão para abrir o modal -->
-
     </footer>
 
     <!-- Modal Carrinho -->
@@ -168,10 +240,7 @@
             
             <h2 class="text-xl font-bold mb-4">Sobre Nós</h2>
             <p class="text-gray-700 mb-4">Somos a MaryF Maquiagens, uma loja especializada em produtos de beleza com preços acessíveis e qualidade garantida.</p>
-            <p class="text-gray-700 font-semibold">Formas de pagamento:</p>
-            <ul class="text-gray-600 mb-4">
-                <li>💳 Cartão de Crédito/Débito</li>
-                <li>💰 Pix</li>
+
                 <li>📦 Fretes Grátis Itaú/Marcelino Vieira RN</li>
             </ul>  
             </form>

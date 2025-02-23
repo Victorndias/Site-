@@ -98,13 +98,7 @@ const produtos = [
     { 
       nome: "Paleta de Sombra", 
       preco: 20, 
-      imagem: "imagens/produtos/paletasombra.jpeg", 
-      descricao: "Delineador prático e preciso para um look marcante e bem definido." 
-    },
-    { 
-      nome: "Primer Facil", 
-      preco: 16, 
-      imagem: "imagens/produtos/primerfacil.jpeg", 
+      imagem: "imagens/produtos/paletasombra.png", 
       descricao: "Delineador prático e preciso para um look marcante e bem definido." 
     },
     { 
@@ -145,26 +139,26 @@ const produtos = [
       produtosFiltrados.slice(0, limite).forEach(produto => {
           const produtoHTML = `
               <div class="bg-purple-300 p-4 rounded-lg shadow hover:scale-105 transition-transform">
-                  <img src="${produto.imagem}" alt="${produto.nome}" class="w-full rounded">
+                  <img src="${produto.imagem}" alt="${produto.nome}" class="w-full h-64 object-contain rounded">
                   <h2 class="text-lg font-bold mt-2">${produto.nome}</h2>
                   <p class="text-gray-600">R$ ${produto.preco.toFixed(2)}</p>
                   
                   <!-- Botão de Descrição -->
                   <div class="w-full flex justify-center mb-2">
                       <button onclick="abrirDescricao(this)" data-descricao="${produto.descricao}"
-                          class="bg-gray-500 px-3 py-2 rounded text-white flex items-center gap-2">
+                          class="bg-green-600 px-3 py-2 rounded text-white flex items-center gap-2">
                           Descrição ->
                       </button>
                   </div>
                   
                   <div class="flex justify-center mt-3 space-x-2">
-                      <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-purple-800"
+                      <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-blue-800"
                           onclick="comprarProduto('${produto.nome}', ${produto.preco})">
                           COMPRAR
                       </button>
-                      <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-purple-800 flex items-center gap-2"
+                      <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-blue-800 flex items-center gap-2"
                           onclick="adicionarAoCarrinho('${produto.nome}', ${produto.preco})">
-                          <img src="imagens/carrinho.png" alt="Carrinho" class="w-6 h-6">+
+                          <img src="imagens/icones/carrinho.png" alt="Carrinho" class="w-6 h-6">+
                       </button>
                   </div>
               </div>
